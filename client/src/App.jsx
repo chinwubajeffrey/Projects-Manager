@@ -1,4 +1,3 @@
-import React from "react";
 import { Navigate, Routes, BrowserRouter, Route } from "react-router-dom";
 import { useAuthStore } from "./store/authStore.js";
 import Login from "./pages/Login.jsx";
@@ -20,29 +19,27 @@ const ProtectedRoute = ({ children }) => {
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="h-screen">
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/projects/:id"
-            element={
-              <ProtectedRoute>
-                <ProjectBoard />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/projects/:id"
+          element={
+            <ProtectedRoute>
+              <ProjectBoard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -3,6 +3,7 @@ import { useAuthStore } from "../store/authStore.js";
 import { useState } from "react";
 import API from "../api/axios.js";
 import loginbg from "../assets/loginbg.png";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -26,8 +27,8 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center w-full h-[90%] p-5 justify-center font-mont bg-[#d9d9d9] ">
-      <div className="flex items-center justify-center  h-full w-[60%] bg-white">
+    <div className="flex items-center w-full h-screen p-5 justify-center font-mont bg-[#d9d9d9] ">
+      <div className="flex items-center justify-center  h-full w-[70%] bg-white">
         <div className="first basis-1/2 bg-white py-10 px-5 items-center justify-center flex flex-col h-full">
           <div className="box flex-col flex items-center justify-around  w-full">
             <h1 className="text-5xl m-5">Register</h1>
@@ -58,10 +59,13 @@ const Register = () => {
 
               <button
                 type="submit"
-                className="bg-green-800 text-amber-50 w-full py-3 mt-10 rounded-4xl"
+                className="bg-green-800 text-amber-50 w-full py-3 mt-10 rounded-4xl hover:cursor-pointer"
               >
                 Register
               </button>
+              <Link to="/login" className="text-[12px] mt-5">
+                Already one of us? Login
+              </Link>
             </form>
           </div>
         </div>

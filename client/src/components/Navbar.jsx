@@ -32,9 +32,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex justify-between items-center py-4 px-20 border-b-[0.5px]  border-green-800">
+      <nav className="flex justify-between items-center py-4 px-20 border-b-[0.5px] font-mont  border-green-800">
         <div className="logo">
-          <Link to="/dashboard">LOGO</Link>
+          <Link to="/dashboard" className="font-bold">
+            LOGO
+          </Link>
         </div>
         <div className="flex gap-3 items-center">
           <div className="notification">
@@ -44,7 +46,7 @@ const Navbar = () => {
 
           <button
             onClick={handleLogout}
-            className="bg-green-800 text-amber-50 py-2 px-5 rounded-4xl"
+            className="bg-green-800 text-amber-50 py-2 px-5 rounded-4xl hover:cursor-pointer"
           >
             Logout
           </button>

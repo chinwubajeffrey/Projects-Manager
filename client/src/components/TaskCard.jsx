@@ -1,4 +1,4 @@
-const TaskCard = ({ task, priority }) => {
+const TaskCard = ({ task, priority, onTaskClick }) => {
   const getBadgeClasses = (priority) => {
     if (priority === "HIGH") {
       return `bg-red-500 `;
@@ -18,7 +18,7 @@ const TaskCard = ({ task, priority }) => {
   };
 
   return (
-    <div className="card" onClick={() => console.log("Click the task card")}>
+    <div className="card border" onClick={() => onTaskClick(task)}>
       <div className="head">
         <h1>{task.title}</h1>
         <div className={getBadgeClasses(priority)}>{priority}</div>
