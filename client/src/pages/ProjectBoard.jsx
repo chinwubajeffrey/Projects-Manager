@@ -46,8 +46,10 @@ const ProjectBoard = () => {
           </div>
         ) : (
           <div className="flex flex-col justify-around w-full h-full px-20">
-            <h1 className="text-5xl font-bold">{project.name}</h1>
-            <div className="flex">
+            <h1 className="text-5xl my-3 font-mont font-bold">
+              {project.name}
+            </h1>
+            <div className="flex w-full h-full justify-around">
               {selectedTask && (
                 <TaskDetail
                   task={selectedTask}
@@ -56,7 +58,7 @@ const ProjectBoard = () => {
                 />
               )}
               {project?.boards?.map((board) => (
-                <div key={board.id}>
+                <div key={board.id} className="w-full h-full flex gap-3">
                   <BoardColumn board={board} onTaskClick={setSelectedTask} />
                 </div>
               ))}

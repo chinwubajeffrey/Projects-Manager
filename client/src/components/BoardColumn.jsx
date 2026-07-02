@@ -9,6 +9,9 @@ const BoardColumn = ({ board, onTaskClick }) => {
   const user = useAuthStore((state) => state.user);
 
   const handleAddTask = async (e) => {
+    if (taskTitle === "") {
+      return console.error("Nigga the hell");
+    }
     e.preventDefault();
     try {
       const createTask = await API.post(`/boards/${board.id}/tasks`, {
@@ -22,9 +25,12 @@ const BoardColumn = ({ board, onTaskClick }) => {
   };
 
   return (
-    <div>
-      <div className="border p-3">
-        {board.name} {board.tasks.length}
+    <div className="basis-[90%] h-full">
+      <div className="border flex flex-col justify-between gap-5 border-b-black p-5 basis-[30%] rounded-xl hover:cursor-pointer">
+        <div className="flex justify-between items-center text-xl font-medium">
+          <div>{board.name}</div>{" "}
+          <div className="text-sm text-gray-600">{board.tasks.length}</div>
+        </div>
         {board.tasks.map((task) => (
           <TaskCard
             task={task}
@@ -37,17 +43,36 @@ const BoardColumn = ({ board, onTaskClick }) => {
           <div className="form">
             <form onSubmit={handleAddTask}>
               <input
+                className=" p-3 text-l  border-b-2 border-green-800 outline-none"
                 type="text"
                 placeholder="Title"
                 onChange={(e) => setTaskTitle(e.target.value)}
                 value={taskTitle}
               />
-              <button type="submit">Create Task</button>
-              <button onClick={(e) => setShowForm(false)}>Cancel</button>
+              <div className="flex gap-3">
+                <button
+                  type="submit"
+                  className="bg-green-800 text-amber-50 mt-3 py-2 px-5 rounded-4xl hover:cursor-pointer"
+                >
+                  Create
+                </button>
+
+                <button
+                  onClick={(e) => setShowForm(false)}
+                  className="bg-green-800 text-amber-50 mt-3 py-2 px-5 rounded-4xl hover:cursor-pointer"
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           </div>
         )}
-        <button onClick={() => setShowForm(true)}>Add Task</button>
+        <button
+          className="bg-green-800 text-amber-50 w-full py-3 rounded-4xl hover:cursor-pointer"
+          onClick={() => setShowForm(true)}
+        >
+          Add New Task
+        </button>
       </div>
     </div>
   );
