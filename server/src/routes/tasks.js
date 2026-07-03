@@ -63,9 +63,9 @@ router.patch("/:id", async (req, res) => {
 
     const io = req.app.get("io");
     const board = await prisma.board.findUnique({
-      where: { id: id },
+      where: { id: updateTask.boardId },
     });
-    io.to(board.projectId).emit("task-updated", { id, task: newTask });
+    io.to(board.projectId).emit("task-updated", { id, task: updateTask });
 
     return res.status(200).json(updateTask);
   } catch (error) {

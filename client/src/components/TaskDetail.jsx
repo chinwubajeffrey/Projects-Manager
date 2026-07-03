@@ -35,9 +35,9 @@ const TaskDetail = ({ task, onClose, projectId }) => {
   };
 
   return (
-    <div className="fixed h-screen w-screen z-10 bg-amber-50">
+    <div className="fixed h-screen w-screen  z-10  top-0 left-0 bg-[rgba(0,0,0,0.32)] backdrop-blur-sm">
       {loading ? (
-        <div className="w-screen h-screen flex justify-center items-center">
+        <div className="w-screen h-screen flex justify-center bg-amber-50 items-center">
           <Triangle
             visible={true}
             height="80"
@@ -50,7 +50,7 @@ const TaskDetail = ({ task, onClose, projectId }) => {
         </div>
       ) : (
         <div className="flex h-full w-full font-cor items-center justify-center">
-          <div className="card p-4 -mt-50 border flex ">
+          <div className="card p-4 max-w-1/2 border flex bg-amber-50 rounded-2xl">
             <div className="w-full border-r flex flex-col justify-between px-4">
               <div>
                 <h1 className="text-xl font-mont mb-3">{task.title}</h1>

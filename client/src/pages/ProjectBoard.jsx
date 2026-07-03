@@ -6,6 +6,7 @@ import BoardColumn from "../components/BoardColumn.jsx";
 import TaskDetail from "../components/TaskDetail.jsx";
 import { Triangle } from "react-loader-spinner";
 import Navbar from "../components/Navbar.jsx";
+import io from "socket.io-client";
 
 const ProjectBoard = () => {
   const [project, setProject] = useState(null);
@@ -26,6 +27,14 @@ const ProjectBoard = () => {
       }
     };
     fetch();
+  }, []);
+
+  useEffect(() => {
+    const socket = async () => {
+      const connect = await io("http://localhost:5000");
+      connect.emit("join-project", { id: id });
+      connect.on("task-update", ({ boardId, task }) => {});
+    };
   }, []);
 
   return (
