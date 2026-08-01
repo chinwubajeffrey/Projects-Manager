@@ -18,7 +18,7 @@ const TaskCard = ({ task, priority, onTaskClick }) => {
   };
 
   return (
-    <div className="card border-b p-1" onClick={() => onTaskClick(task)}>
+    <div className="card border-b p-1 w-full" onClick={() => onTaskClick(task)}>
       <div className="head flex justify-between items-center">
         <h1 className="text-xl">{task.title}</h1>
         <div className={getBadgeClasses(priority)}>{priority}</div>

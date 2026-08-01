@@ -25,8 +25,8 @@ const BoardColumn = ({ board, onTaskClick }) => {
   };
 
   return (
-    <div className="basis-[90%] h-full">
-      <div className="border flex flex-col justify-between gap-5 border-b-black p-5 basis-[30%] rounded-xl hover:cursor-pointer">
+    <div className="w-full h-full">
+      <div className="border flex flex-col justify-between gap-5 border-b-black p-5 w-full rounded-xl hover:cursor-pointer">
         <div className="flex justify-between items-center text-xl font-medium">
           <div>{board.name}</div>{" "}
           <div className="text-sm text-gray-600">{board.tasks.length}</div>

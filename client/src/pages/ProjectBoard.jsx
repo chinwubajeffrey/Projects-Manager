@@ -38,9 +38,9 @@ const ProjectBoard = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen">
+    <div className="min-h-screen w-full">
       <Navbar />
-      <div className="flex w-full h-[80%] justify-center items-center">
+      <div className="flex flex-col md:flex-row w-full h-[80%] justify-center items-center">
         {loading ? (
           <div className="h-full w-full flex justify-center items-center">
             <Triangle
@@ -54,11 +54,11 @@ const ProjectBoard = () => {
             />
           </div>
         ) : (
-          <div className="flex flex-col justify-around w-full h-full px-20">
+          <div className="flex flex-col justify-around w-full h-full px-4 sm:px-20">
             <h1 className="text-5xl my-3 font-mont font-bold">
               {project.name}
             </h1>
-            <div className="flex w-full h-full justify-around">
+            <div className="flex flex-wrap w-full h-full justify-center gap-4">
               {selectedTask && (
                 <TaskDetail
                   task={selectedTask}

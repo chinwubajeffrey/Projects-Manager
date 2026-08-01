@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex justify-between items-center py-4 px-20 border-b-[0.5px] font-mont  border-green-800">
+      <nav className="flex flex-row justify-between items-center py-4 px-4 sm:px-20 border-b-[0.5px] font-mont border-green-800">
         <div className="logo">
           <Link to="/dashboard" className="font-bold">
             LOGO

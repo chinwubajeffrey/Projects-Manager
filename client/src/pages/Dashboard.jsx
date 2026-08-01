@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+// import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import API from "../api/axios.js";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
@@ -61,14 +62,14 @@ const Dashboard = () => {
       />
     </div>
   ) : (
-    <div className="font-mont bg-[#d9d9d9] h-screen">
+    <div className="font-mont bg-[#d9d9d9] min-h-screen px-4">
       <Navbar />
-      <div className="px-20 flex items-center justify-between my-5">
+      <div className="px-4 sm:px-20 flex items-center justify-between my-5">
         <h1 className="text-5xl font-bold">Welcome {user.name}</h1>
 
         <button
           onClick={() => setShowForm(true)}
-          className="bg-green-800 text-amber-50 py-3 w-[10vw] rounded-4xl hover:cursor-pointer"
+          className="bg-green-800 text-amber-50 py-3 w-auto sm:w-[10vw] rounded-4xl hover:cursor-pointer"
         >
           New project
         </button>
@@ -112,12 +113,12 @@ const Dashboard = () => {
         </div>
       )}
 
-      <div className="project flex justify-around my-10 py-5 mx-20">
+      <div className="project grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-10 mx-4 sm:mx-20">
         {projects.map((project) => (
           <div
             key={project.id}
             onClick={() => enterProject(project.id)}
-            className="card border border-b-black p-5 basis-[30%] rounded-xl hover:cursor-pointer"
+            className="card border border-b-black p-5 rounded-xl hover:cursor-pointer"
           >
             <div className="name text-xl font-medium my-5">
               {project.name.toUpperCase()}
