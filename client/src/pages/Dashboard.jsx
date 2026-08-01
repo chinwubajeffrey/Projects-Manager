@@ -62,19 +62,19 @@ const Dashboard = () => {
       />
     </div>
   ) : (
-    <div className="font-mont bg-[#d9d9d9] min-h-screen px-4">
+    <div className="font-mont bg-[#d9d9d9] h-screen px-4">
       <Navbar />
-      <div className="px-4 sm:px-20 flex items-center justify-between my-5">
+      <div className="px-4 sm:px-20 flex flex-col sm:flex-row sm:items-center justify-between my-5">
         <h1 className="text-5xl font-bold">Welcome {user.name}</h1>
 
         <button
           onClick={() => setShowForm(true)}
-          className="bg-green-800 text-amber-50 py-3 w-auto sm:w-[10vw] rounded-4xl hover:cursor-pointer"
+          className="bg-green-800 mt-5 text-amber-50 py-3 w-auto sm:w-[10vw] rounded-4xl hover:cursor-pointer"
         >
           New project
         </button>
       </div>
-      <p className="text-xl w-full px-21 font-cor">Your Projects</p>
+      <p className="text-xl w-full px-5 sm:px-21 font-cor">Your Projects</p>
       {showForm && (
         <div className="form fixed z-10 h-screen top-0 left-0 w-screen  bg-[rgba(0,0,0,0.21)] backdrop-blur-sm">
           <div className="w-screen h-screen flex flex-col justify-center items-center">
