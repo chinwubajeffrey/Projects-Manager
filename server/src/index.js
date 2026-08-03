@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://projects-manager-ochre.vercel.app",
     credentials: true,
   }),
 );
@@ -21,8 +21,7 @@ app.use(
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
-    // origin: "https://projects-manager-ochre.vercel.app",
+    origin: "https://projects-manager-ochre.vercel.app",
     credentials: true,
   },
 });
